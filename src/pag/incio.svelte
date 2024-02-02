@@ -1,7 +1,7 @@
 <script>
   import {link} from "svelte-spa-router"
 
-  let tusuario=3;
+  let tusuario=0;
   let barras_correo=true;
   let titulo=['Verificador Entrada y Salida', 'Administración'];
   let imagen=['./img/cabeza.jpg', './img/encrym.jpg'];
@@ -29,18 +29,6 @@
 </script>
 
 <main>
-  <!-- Este primer if comprueba que no se haya escogido ya una sesión -->
-  {#if tusuario!=1 && tusuario!=0}
-    <div id="tipousuario">
-      <button class="btnSeleccion" on:click={()=>tusuario=0}>
-        <svg xmlns="http://www.w3.org/2000/svg" width="230" height="234" fill="white" class="bi bi-person-fill" viewBox="0 0 16 16">
-          <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
-        </svg>
-      </button>
-      <button class="btnSeleccion" on:click={()=>tusuario=1}><img src="/public/img/inah.png" style="width:230px; height:234px;"></button>
-    </div>
-  {:else}
-  <!-- en caso de que ya se haya escogido la sesión se despliega el cuestionario correspondiente a cada tipo de usuarios -->
     <div class="card bienvenida" style="padding: 0%;">
       <div class="row" style="max-width: 100%; max-height: 100%;">
         <div class="col-5 mb-3" >
@@ -66,24 +54,25 @@
             <div class="col-12"><h5>Fecha: {dia+"/"+mes+"/"+anno}<br>Son las {hora+" horas con "+minuto+" minutos"}</h5></div>
             <!-- <div class="col-12"><br></div> -->
             <div class="col-12"><br></div>
-            <div class="col-12"><span>{barras_correo ? "Ingrese Su Codigo de Barras:":"Ingrese Su Correo"}</span><input type={barras_correo ? "number":"email"}></div>
+            <div class="col-12"><span>{barras_correo ? "Escanee Su Código de Barras:":"Ingrese Su Correo:"}</span><input type={barras_correo ? "text":"text"} autofocus autocomplete="off"></div>
             <div class="col-12"><br></div>
             <div class="col-12">
-              <span>Contraseña:</span><br>
-              <input type="password" id="Contraseña"><br><br>
+              {#if barras_correo==false}
+                <span>Contraseña:</span><br>
+                <input type="password" id="contrasenna" autocomplete="off"><br><br>
+              {/if}
               <button style="border: none; color:#FB7D0C; background-color: #F5F5F5;  text-decoration:double" on:click={barraCodigo}>{barras_correo ? "Utilizar Correo Electronico":"Utilizar Codigo de Barras"}</button>
             </div>
             <!-- <div class="col-12"><br></div> -->
             <div class="col-12"><br></div>
             <div class="col-12">
-              <button style="background-color: #FB7D0C; color: white; pading: 20px; font-size:20px"><a href={tusuario==0 ? "/PagUsuarios":"/PagRHumanos"} use:link>{tusuario==0 ? "Registrar Hora":"Ingresar"}</a></button>
-              <button style="background-color: #D3D3D3; color: #7D7770; pading: 20px; font-size:20px" on:click={volver}>Volver</button>
+              <button style="background-color: #FB7D0C; color: white; pading: 20px; font-size:20px"><a href={tusuario==0 ? "/PagUsuarios":"/PagRHumanos"} use:link>Iniciar Sesión</a></button>
             </div>
           </div>
         </div>
       </div>
     </div>
-  {/if}
+
 </main>
 
 <style>
