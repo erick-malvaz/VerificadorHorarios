@@ -1,10 +1,10 @@
 <script>
-  import {link} from "svelte-spa-router"
+  import {link} from "svelte-spa-router"//ya no sirve
 
-  let tusuario=0;
+  let tusuario=0;//ya no sirve
   let barras_correo=true;
-  let titulo=['Verificador Entrada y Salida', 'Administración'];
-  let imagen=['./img/cabeza.jpg', './img/encrym.jpg'];
+  let titulo=['Verificador Entrada y Salida', 'Administración'];//ya no sirve
+  let imagen=['./img/cabeza.jpg', './img/encrym.jpg'];//ya no sirve
 
   // Creas un objeto llamado Date, con el podemos obtener la fecha y hora actual
   var currentTime = new Date();
@@ -46,7 +46,7 @@
 
   let codigo_correo
   let contrasena
-  let lanzar_modal=false
+  let lanzar_modal=false//ya no sirve 
 
   function verifica(){
     if(codigo_correo == '' || codigo_correo == null || codigo_correo == ' ')
@@ -68,11 +68,13 @@
     <div class="row" style="max-width: 100%; max-height: 100%;">
       <div class="col-5 mb-3" >
         <img class="img1" src={imagen[tusuario]} alt="">
+        <!-- ya no sirve, se puede cambiar por una imagen normal y ya  -->
       </div>
       <div class="col-7 mb-3" >
         <div class="row" style="background-color: white; border:1px white solid; border-radius:0 30px 0 0;">
           <div class="col-4">
             <img class="img2" src="https://latinrev.flacso.org.ar/sites/default/files/logos/logo_encrym-01_2_-_coordinacion_editorial_intervencion.png" alt="">
+            <!-- descargar la imagen, para no depender del link -->
           </div>
           <div class="col-1">
             <br>
@@ -81,11 +83,13 @@
           <div class="col-6">
             <br>
             <h2>{titulo[tusuario]}</h2>
+            <!-- ya solo se queda el verificar ... -->
           </div>
         </div>
         <div class="row" style="background-color: #F5F5F5;">
           <div class="col-12"><br></div>
           <div class="col-12"><h2>{tusuario==0 ? "Registro de Horas":"Inicio de Sesión"}</h2></div>
+          <!-- Solo se queda uno -->
           <div class="col-12"><h5>Fecha: {dia+"/"+mes+"/"+anno}<br>Son las {hora+" horas con "+minuto+" minutos"}</h5></div>
           <div class="col-12"><br></div>
           <div class="col-12"><span>{barras_correo ? "Escanee Su Código de Barras:":"Ingrese Su Correo:"}</span><input type="text" autofocus autocomplete="off" bind:value={codigo_correo}></div>
@@ -154,4 +158,6 @@
   h5{
     color: #7D7770;
   }
+
+  /* se puede hacer una clase para no tener por separado los dos h y ahorrar unas líneas */
 </style>
