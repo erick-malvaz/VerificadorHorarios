@@ -82,7 +82,11 @@
           <div class="col-12"><h2>Inicio de Sesión</h2></div>
           <div class="col-12"><h5>Fecha: {dia+"/"+mes+"/"+anno}<br>Son las {hora+" horas con "+minuto+" minutos"}</h5></div>
           <div class="col-12"><br></div>
-          <div class="col-12"><span>{barras_correo ? "Escanee Su Código de Barras:":"Ingrese Su Correo:"}</span><input type="text" autofocus autocomplete="off" bind:value={codigo_correo}></div>
+          <div class="col-6"><span>{barras_correo ? "Escanee Su Código de Barras:":"Ingrese Su Correo:"}</span></div>
+          <div class="input-group mb-3" style="max-width: 677px;">
+            <input type="text" class="form-control" autofocus autocomplete="off" bind:value={codigo_correo} aria-label="Recipient's username" aria-describedby="basic-addon2">
+            <span class={barras_correo ? "":"input-group-text"} style={barras_correo ? "":"box-shadow: 10px 10px 10px 1px rgba(63, 61, 61, 0.2);"}>{barras_correo ? "":"@encrym.edu.mx"}</span>
+          </div>
           <div class="col-12"><br></div>
           <div class="col-12">
             {#if barras_correo==false}
