@@ -1,4 +1,6 @@
 <script>
+  import {link} from "svelte-spa-router"
+
   let barras_correo=true;
 
   // Creas un objeto llamado Date, con el podemos obtener la fecha y hora actual
