@@ -17,46 +17,52 @@
     let codigo_correo
     let contrasena
 
+
     let clear
     $: {
       clearInterval(clear)
       clear = setInterval(incr, 1000)
       if(counter==60){
         if(minuto<59)
-          minuto += 1
-        else{
-          minuto=0
-          if(hora<23)
-            hora += 1
-          else
-            hora = 0
-        }
-      counter=0
-      }
-    }
+        minuto += 1
+      else{
+        minuto=0
+        if(hora<23)
+        hora += 1
+      else
+      hora = 0
+  }
+  counter=0
+}
+}
 
   function barraCodigo(){
     if(barras_correo)
       barras_correo=false
     else
       barras_correo=true
-    codigo_correo=null
-    contrasena=null
+    codigo_correo=''
+    contrasena=''
   }
 
-  function verifica(){
-    if(codigo_correo == '' || codigo_correo == null || codigo_correo == ' ')
-      alert("No hay datos")
+function verifica(){
+  if(codigo_correo == '' || codigo_correo == null || codigo_correo == ' ')
+    alert("No hay datos")
+  else
+    if(barras_correo)
+      alert("Hora Registrada a las: "+hora+":"+minuto)
+      // alert(codigo_correo.length)
     else
-      if(barras_correo)
-        alert("Hora Registrada a las: "+hora+":"+minuto)
-
+      if(contrasena=='' || contrasena==null || contrasena==' ')
+        alert("Falta Contraseña")
       else
-        if(contrasena=='' || contrasena==null || contrasena==' ')
-          alert("Falta Contraseña")
-        else
-          alert("Hora Registrada a las: "+hora+":"+minuto)
-  }
+        alert("Hora Registrada a las: "+hora+":"+minuto)
+}
+
+let codigo = codigo_correo;
+if(codigo!=null){
+  console.log("Tengo que colgar");
+}
 </script>
 
 <main>

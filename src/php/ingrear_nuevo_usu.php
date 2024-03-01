@@ -1,27 +1,22 @@
 <?php
-  $inc = include("config.php");
-  // include("config.php");
+  include '../headers.php';
+  include '../Model/Administrativo.php';
 
-  function _insert($tabla, $columnas, $datos){
-    $sql = "INSERT INTO ".$tabla."(".$columnas.") VALUES ('".$datos."')";
-    $res = mysqli_query($conn, $sql);
+  switch ($_SERVER["REQUEST_METHOD"]){
+    case "GET":
+      $response['mtd'] = true;
+      $estado = 1;
+
+      #$persona = new Persona();
+      $administrativo = new Administrativo();
+      $response['administrativos'] = array();
+
+      $response['administrativos'] = $administrativo->selectAllAdministrativos();
+      break;
+    default :
+      $response['mtd'] = false;
+      break;
   }
 
-  function _select($tabla, $columnas){
-    $sql = "SELECT $columnas FROM $tabla";
-    $res = mysqli_query($conn, $sql);
-    echo $res;
-  }
-
-  // $nombre = $_POST['nombre'];
-  $nombre = "Leo";
-
-  if(!$inc){
-    echo "No se pudo conectar :=";
-  }else{
-    // _insert('ercik', 'nombre, apellido_p', '"Luis", "Pillo"');
-    $sql = "INSERT INTO erick (nombre, apellido_p) VALUES ('Hola')";
-    $res = mysqli_query($conn, $sql);
-    echo "Se guardo ".$nombre;
-  }
+  echo json_encode($response);
 ?>
