@@ -21,10 +21,6 @@
     <button class="boton" type="button" data-bs-toggle="modal" data-bs-target="#permiso">Permisos</button>
   </div>
 
-  <!-- <div class="modal-dialog modal-lg" id="e" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <p>Hola</p>
-  </div> -->
-
   <div id="historial" class="modal fade" role="dialog">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -49,7 +45,7 @@
         </div>
         <div class="modal-body">
           <form>
-            <label>Nombre</label>
+            <label>pNombre</label>
             <br>
             <input type="text" class="inputs">
             <br>

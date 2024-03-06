@@ -51,7 +51,6 @@ function verifica(){
   else
     if(barras_correo)
       alert("Hora Registrada a las: "+hora+":"+minuto)
-      // alert(codigo_correo.length)
     else
       if(contrasena=='' || contrasena==null || contrasena==' ')
         alert("Falta Contraseña")
@@ -69,7 +68,19 @@ if(codigo!=null){
   <div class="card bienvenida" style="padding: 0%;">
     <div class="row" style="max-width: 100%; max-height: 100%;">
       <div class="col-5 mb-3" >
-        <img class="img1" src="./img/cabeza.jpg" alt="Imagen1">
+        <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img class="img1" src="./img/cabeza.jpg" alt="Imagen1">
+            </div>
+            <div class="carousel-item">
+              <img class="img1" src="./img/restauracion.jpg" alt="Imagen2">
+            </div>
+            <div class="carousel-item">
+              <img class="img1" src="./img/taller_pintura.jpg" alt="Imagen3">
+            </div>
+          </div>
+        </div>
       </div>
       <div class="col-7 mb-3" >
         <div class="row" style="background-color: white; border:1px white solid; border-radius:0 30px 0 0;">
