@@ -1,7 +1,7 @@
 <main>
   <nav class="navbar navbar-expand-lg" style="background-color: #F5F5F5; height: 150px;">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#"><img style="max-height: 140px;" src="https://latinrev.flacso.org.ar/sites/default/files/logos/logo_encrym-01_2_-_coordinacion_editorial_intervencion.png" alt=""></a>
+      <a class="navbar-brand" href="#"><img style="max-height: 140px;" src="../public/img/logo2.png" alt="logo/encrym"></a>
 
       <h1 style="color: #FB7D0C; margin-right:15px;">|</h1>
 
